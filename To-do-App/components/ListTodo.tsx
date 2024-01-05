@@ -1,24 +1,25 @@
 "use client";
-import { useTodoContext } from "@/store/Todo";
 import React from "react";
 import { useSearchParams } from "next/navigation";
+import { TodoValues } from "@/utils/Redux_slice/todoSlice";
+import { useSelector } from "react-redux";
 type Props = {};
 
 const ListTodo = (props: Props) => {
-  const { todo, handleTodoCompleted, handleTodoDeleted } = useTodoContext();
   const searchParams = useSearchParams();
-
-  const search = searchParams.get("todo");
-  console.log(search);
-  let filterTodos = todo;
+  const a = useSelector(TodoValues);
+  console.log(a);
+  /*  const search = searchParams.get("todo");
+  console.log(search); */
+  /* let filterTodos = todo;
   if (search === "active") {
     filterTodos = todo.filter((task) => !task.completed);
   } else if (search === "completed") {
     filterTodos = todo.filter((task) => task.completed);
-  }
+  } */
   return (
     <div>
-      {filterTodos.map((data) => {
+      {/*   {filterTodos.map((data) => {
         return (
           <div key={data.id}>
             <ul className="flex m-3 p-1 text-center justify-between ">
@@ -48,7 +49,7 @@ const ListTodo = (props: Props) => {
             </ul>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };

@@ -1,16 +1,19 @@
 "use client";
-import { useTodoContext } from "@/store/Todo";
+import { useAppDispatch } from "@/utils/Redux_Store/Hooks";
+import { addTodo } from "@/utils/Redux_slice/todoSlice";
 import React, { FormEvent, useState } from "react";
+import { useDispatch } from "react-redux";
 
 type Props = {};
 
 const UserTodo = (props: Props) => {
+  const dispatch = useDispatch();
   const [UserTodo, setUserTodo] = useState<string>("");
-  const { handleAddTodo } = useTodoContext();
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (UserTodo !== "") {
-      handleAddTodo(UserTodo);
+      dispatch(addTodo(UserTodo));
     }
 
     setUserTodo("");

@@ -1,10 +1,5 @@
-"use client";
-import { DataContextProvider } from "@/store/Todo";
 import "./globals.css";
-import Cookies from "js-cookie";
-import { redirect } from "next/navigation";
-import useUser from "@/hooks/useUser";
-import { UserProvider } from "@/store/User";
+import ReduxProviders from "@/utils/ReduxProviders";
 
 export const metadata = {
   title: "FindPeers",
@@ -19,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <UserProvider>
-          <DataContextProvider> {children}</DataContextProvider>
-        </UserProvider>
+        <ReduxProviders>{children}</ReduxProviders>
       </body>
     </html>
   );

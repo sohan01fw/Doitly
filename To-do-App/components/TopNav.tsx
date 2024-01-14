@@ -3,7 +3,7 @@ import { account } from "@/lib/appwrite";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React from "react";
 
 const TopNav = () => {
   const router = useRouter();

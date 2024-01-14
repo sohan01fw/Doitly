@@ -5,7 +5,7 @@ type Todo = {
   id: string;
   task: string;
   completed: boolean;
-  createdAt: Date;
+  createdAt: string;
 };
 interface TodoState {
   todo: Array<Todo>;
@@ -22,7 +22,7 @@ export const todoSlice = createSlice({
         id: Math.random().toString(),
         task: action.payload,
         completed: false,
-        createdAt: new Date(),
+        createdAt: new Date().toISOString(),
       });
     },
   },

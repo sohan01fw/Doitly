@@ -3,12 +3,15 @@ import React from "react";
 import { useSearchParams } from "next/navigation";
 import { TodoValues } from "@/utils/Redux_slice/todoSlice";
 import { useSelector } from "react-redux";
+import { useGetTodosQuery } from "@/utils/api/apiSlice";
 type Props = {};
 
 const ListTodo = (props: Props) => {
+  const { data, isLoading, isError, isSuccess, error } = useGetTodosQuery();
   const searchParams = useSearchParams();
   const a = useSelector(TodoValues);
-  console.log(a);
+  let content;
+  console.log("todos", data);
   /*  const search = searchParams.get("todo");
   console.log(search); */
   /* let filterTodos = todo;
@@ -16,6 +19,14 @@ const ListTodo = (props: Props) => {
     filterTodos = todo.filter((task) => !task.completed);
   } else if (search === "completed") {
     filterTodos = todo.filter((task) => task.completed);
+  } */
+
+  /*   if (isLoading) {
+    content = <p>loading.....</p>;
+  } else if (isSuccess) {
+    content = JSON.stringify(todos);
+  } else if (isError) {
+    content = <p>there is error in a code,{`${error}`}</p>;
   } */
   return (
     <div>

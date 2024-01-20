@@ -1,19 +1,26 @@
 "use client";
 import { useAppDispatch } from "@/utils/Redux_Store/Hooks";
 import { addTodo } from "@/utils/Redux_slice/todoSlice";
+import { useAddTodosMutation } from "@/utils/api/apiSlice";
 import React, { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
+import shortUUID from "short-uuid";
 
 type Props = {};
 
 const UserTodo = (props: Props) => {
   const dispatch = useDispatch();
   const [UserTodo, setUserTodo] = useState<string>("");
-
+  const [addTodo] = useAddTodosMutation();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (UserTodo !== "") {
-      dispatch(addTodo(UserTodo));
+      addTodo({
+        id: shortUUID.generate(),
+        task: UserTodo,
+        completed: false,
+        createdAt: new Date().toISOString(),
+      });
     }
 
     setUserTodo("");

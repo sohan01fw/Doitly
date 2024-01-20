@@ -1,7 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 interface Todo {
-  title: string;
+  id: string;
+  task: string;
+  completed: boolean;
+  createdAt: string;
   // Add other properties if needed
 }
 
@@ -10,9 +13,16 @@ export const todoapi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/" }),
   endpoints: (build) => ({
     getTodos: build.query<Todo[], void>({
-      query: () => "todos",
+      query: () => "getTodos",
+    }),
+    addTodos: build.mutation<Todo, Partial<Todo>>({
+      query: (todos) => ({
+        url: "/createTodo",
+        method: "POST",
+        body: todos,
+      }),
     }),
   }),
 });
 
-export const { useGetTodosQuery } = todoapi;
+export const { useGetTodosQuery, useAddTodosMutation } = todoapi;

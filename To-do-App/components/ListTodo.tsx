@@ -7,11 +7,18 @@ import { useGetTodosQuery } from "@/utils/api/apiSlice";
 type Props = {};
 
 const ListTodo = (props: Props) => {
-  const { data, isLoading, isError, isSuccess, error } = useGetTodosQuery();
+  const {
+    data: todosRes,
+    isLoading,
+    isError,
+    isSuccess,
+    error,
+  } = useGetTodosQuery();
+
   const searchParams = useSearchParams();
   const a = useSelector(TodoValues);
   let content;
-  console.log("todos", data);
+  console.log(todosRes);
   /*  const search = searchParams.get("todo");
   console.log(search); */
   /* let filterTodos = todo;

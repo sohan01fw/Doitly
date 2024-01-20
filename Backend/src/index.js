@@ -6,13 +6,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
-app.get("/todos", (req, res) => {
+app.get("/getTodos", (req, res) => {
   res.json([
-    { title: "hello world" },
-    { title: "hello world" },
-    { title: "hello world" },
-    { title: "hello world" },
+    { todos: "hello world" },
+    { todos: "hello world" },
+    { todos: "hello world" },
+    { todos: "hello world" },
   ]);
+});
+app.post("/createTodo", (req, res) => {
+  console.log(req.body);
 });
 
 app.listen(port, () => {

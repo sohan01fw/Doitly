@@ -1,5 +1,5 @@
 import express from "express";
-import { CreateTodos } from "../Controller/TodosController";
+import { CreateTodos } from "../Controller/TodosController.js";
 
 export const TodosRouter = express.Router();
 

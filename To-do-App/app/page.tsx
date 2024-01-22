@@ -2,7 +2,7 @@ import ListTodo from "@/components/ListTodo";
 import Navbar from "@/components/Navbar";
 import TopNav from "@/components/TopNav";
 import UserTodo from "@/components/UserTodo";
-
+// Web SDK
 const page = () => {
   return (
     <div className="grid justify-center mt-[2rem]">
@@ -16,8 +16,6 @@ const page = () => {
           <UserTodo />
           <ListTodo />
         </div>
-        {/*         <div>{getUser.user?.name}</div>
-         */}{" "}
       </div>
     </div>
   );

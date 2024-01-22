@@ -1,5 +1,4 @@
 "use client";
-import { account } from "@/lib/appwrite";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useEffect, useLayoutEffect, useState } from "react";
@@ -8,7 +7,6 @@ export default function auth() {
   const handleAuth = () => {
     const redirectURL = "http://localhost:3000/dashboard";
     const res = account.createOAuth2Session("google", redirectURL);
-    console.log(res);
   };
   const router = useRouter();
   const [loading, setLoading] = useState(true); // Add a loading state

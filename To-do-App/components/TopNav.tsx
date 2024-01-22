@@ -1,30 +1,10 @@
 "use client";
-import { account } from "@/lib/appwrite";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 const TopNav = () => {
-  const router = useRouter();
-  const handleDelete = async () => {
-    try {
-      // Call the Appwrite API to delete the user's session
-      await account.deleteSession("current"); // "current" means the current user's session
-
-      // Remove the user_id cookie
-      Cookies.remove("user_id");
-
-      // Clear the user data from local storage
-      localStorage.removeItem("User-Details");
-
-      // Redirect the user to the login page after logout
-      router.push("/auth");
-    } catch (error) {
-      console.error("Failed to log out:", error);
-    }
-  };
-
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -51,10 +31,6 @@ const TopNav = () => {
             </Link>
             <li>
               <div>Settings</div>
-            </li>
-
-            <li onClick={handleDelete}>
-              <div>Logout</div>
             </li>
           </ul>
         </div>

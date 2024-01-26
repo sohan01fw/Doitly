@@ -12,7 +12,7 @@ datasource db {
 
 model User {
   id      String      @id @default(auto()) @map("_id") @db.ObjectId
-   name    String?
+  name    String?
   email   String   @unique
   password String
   Todos   Todo[]
@@ -21,10 +21,12 @@ model User {
 
 model Todo {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt   DateTime   @default(now())
   title       String
+  completed    Boolean
   author      User       @relation(fields: [authorId], references: [id])
   authorId    String     @db.ObjectId
+   createdAt   DateTime   @default(now())
+   updatedAt   DateTime   @updatedAt()
 }
 
 

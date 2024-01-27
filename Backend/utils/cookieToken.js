@@ -1,4 +1,4 @@
-import getUserIdAtJwt from "../src/helpers/jwtToken";
+import getUserIdAtJwt from "../src/helpers/jwtToken.js";
 
 const cookieToken = (user, res) => {
   const token = getUserIdAtJwt(user.id);

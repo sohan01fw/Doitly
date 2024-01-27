@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { TodosRouter } from "./Routes/TodoRoutes.js";
+import { userRouter } from "./Routes/UserRoutes.js";
 const app = express();
 dotenv.config();
 const port = process.env.PORT;
@@ -11,7 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 //cookie middleware
 app.use(cookieParser());
 app.use(cors());
-app.use("/api/user", TodosRouter);
+app.use("/api/v1/todos", TodosRouter);
+app.use("/api/v1/user", userRouter);
 app.get("", (req, res) => {
   res.send("hello welcome to doitly");
 });

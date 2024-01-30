@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { TodosRouter } from "./Routes/TodoRoutes.js";
 import { userRouter } from "./Routes/UserRoutes.js";
+import { authRouter } from "./Routes/AuthRoutes.js";
 
 const app = express();
 dotenv.config();
@@ -19,6 +20,7 @@ app.get("", (req, res) => {
 });
 app.use("/api/v1/todos", TodosRouter);
 app.use("/api/v1/user", userRouter);
+app.use("/api/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);

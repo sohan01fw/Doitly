@@ -1,5 +1,5 @@
 import { prisma } from "../../prisma/index.js";
-import { encryptMethods } from "../Helpers/encrypt.js";
+import { encryptMethods } from "../Helpers/crypto.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/aysncHandler.js";

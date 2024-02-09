@@ -21,7 +21,6 @@ export const config = {
   // Matches the pages config in `[...nextauth]`
   pages: {
     signIn: "/auth",
-    error: "/error",
   },
 } satisfies NextAuthOptions;
 
